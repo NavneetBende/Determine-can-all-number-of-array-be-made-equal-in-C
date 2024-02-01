@@ -1,0 +1,38 @@
+//Write a program to check can all number of an array be made equal
+
+#include <stdio.h>
+
+int EqualNumbers(int a[], int n)
+{
+    for (int i = 0; i < n; i++) {
+
+       // Divide number by 2
+       while (a[i] % 2 == 0)
+           a[i] /= 2;
+
+       // Divide number by 3
+       while (a[i] % 3 == 0)
+            a[i] /= 3;
+
+       if (a[i] != a[0]) {
+           return 0;
+       }
+    }
+
+    return 1;
+}
+
+// Driver code
+int main()
+{
+    int a[] = { 50, 75, 100 };
+
+    int n = sizeof(a) / sizeof(a[0]);
+
+    if (EqualNumbers(a, n))
+       printf("Yes");
+    else
+       printf("No");
+
+    return 0;
+}
